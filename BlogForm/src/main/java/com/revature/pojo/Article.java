@@ -8,7 +8,7 @@ public class Article {
 	private int articleId;
 	private String title;
 	private LocalDate publishDate;
-	private byte[] content;
+	private String content;
 	public Article() {
 		
 		this.articleId=0;
@@ -16,17 +16,23 @@ public class Article {
 		this.publishDate=LocalDate.now();
 		this.content=null;		
 	}
-	public Article(int articleId, String title, LocalDate publishDate, byte[] content) {
+	public Article(int articleId, String title, LocalDate publishDate, String content) {
 		super();
 		this.articleId = articleId;
 		this.title = title;
 		this.publishDate = publishDate;
 		this.content = content;
 	}
-	public Article(int articleId, String title, byte[] content) {
+	public Article(int articleId, String title, String content) {
 		super();
 		this.articleId = articleId;
 		this.title = title;
+		this.content = content;
+	}
+	public Article(String title, LocalDate publishDate, String content) {
+		super();
+		this.title = title;
+		this.publishDate = publishDate;
 		this.content = content;
 	}
 	public int getArticleId() {
@@ -47,16 +53,18 @@ public class Article {
 	public void setPublishDate(LocalDate publishDate) {
 		this.publishDate = publishDate;
 	}
-	public byte[] getContent() {
+	public String getContent() {
 		return content;
 	}
-	public void setContent(byte[] content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 	@Override
 	public String toString() {
-		return "Article [articleId=" + articleId + ", title=" + title + ", publishDate=" + publishDate  + "]";
+		return "Article [articleId=" + articleId + ", title=" + title + ", publishDate=" + publishDate + ", content="
+				+ content + "]";
 	}
+	
 	
 	
 	

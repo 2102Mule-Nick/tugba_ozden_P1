@@ -10,10 +10,10 @@ public interface ArticleDao {
 	
 	public List<Article> getArticlesByTitle(String title);
 	
-	public boolean addArticle(Article article);
+	public void addArticle(Article article);
 	
-	public boolean deleteArticleById(int id);	
+	public boolean deleteArticle(Article article);	
 	
-	public boolean updateArticle(Article article);
+	public void updateArticle(Article article);
 
 }
