@@ -28,6 +28,14 @@ public class Job {
 		return jobId;
 	}
 
+	
+	public int getSalaryCalc(int paramInt) {
+		
+		
+		
+		return jobId;
+	}
+	
 	public void setJobId(int jobId) {
 		this.jobId = jobId;
 	}

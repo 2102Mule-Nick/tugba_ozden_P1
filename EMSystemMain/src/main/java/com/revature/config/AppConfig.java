@@ -21,6 +21,7 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.jta.JtaTransactionManager;
 
+import bitronix.tm.BitronixTransactionManager;
 import bitronix.tm.TransactionManagerServices;
 import bitronix.tm.resource.jdbc.PoolingDataSource;
 import bitronix.tm.resource.jms.PoolingConnectionFactory;
@@ -40,7 +41,7 @@ public class AppConfig {
 		public static final String BROKER_URL = "tcp://localhost:61616";
 
 		// JMS Destinations
-		public static final String EXAMPLE_QUEUE = "FLASH_CARD_LIST";
+		public static final String EXAMPLE_QUEUE = "ALL_EMPLOYEE_LIST";
 
 		// DataSource info
 		public static final String DATASOURCE_SCHEMA = System.getenv("POS_DB_SCHEMA");
@@ -104,12 +105,14 @@ public class AppConfig {
 			bitronix.tm.Configuration config = TransactionManagerServices.getConfiguration();
 			config.setDisableJmx(true);
 			config.setServerId("spring-btm");
+			
 			return config;
 		}
 
 		@Bean(destroyMethod = "shutdown")
 		@DependsOn("btmConfig")
 		public TransactionManager primaryTransactionManager() {
+			
 			return TransactionManagerServices.getTransactionManager();
 		}
 

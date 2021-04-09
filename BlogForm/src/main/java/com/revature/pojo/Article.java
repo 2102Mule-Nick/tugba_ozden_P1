@@ -7,16 +7,16 @@ public class Article {
 	
 	private int articleId;
 	private String title;
-	private LocalDate publishDate;
+	private String publishDate;
 	private String content;
 	public Article() {
 		
 		this.articleId=0;
 		this.title=null;
-		this.publishDate=LocalDate.now();
+		this.publishDate= " ";
 		this.content=null;		
 	}
-	public Article(int articleId, String title, LocalDate publishDate, String content) {
+	public Article(int articleId, String title,String publishDate, String content) {
 		super();
 		this.articleId = articleId;
 		this.title = title;
@@ -29,7 +29,7 @@ public class Article {
 		this.title = title;
 		this.content = content;
 	}
-	public Article(String title, LocalDate publishDate, String content) {
+	public Article(String title, String publishDate, String content) {
 		super();
 		this.title = title;
 		this.publishDate = publishDate;
@@ -47,10 +47,10 @@ public class Article {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public LocalDate getPublishDate() {
+	public String getPublishDate() {
 		return publishDate;
 	}
-	public void setPublishDate(LocalDate publishDate) {
+	public void setPublishDate(String publishDate) {
 		this.publishDate = publishDate;
 	}
 	public String getContent() {

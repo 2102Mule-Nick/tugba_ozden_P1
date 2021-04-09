@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import com.revature.dao.UserDao;
 import com.revature.exception.UserExistException;
 import com.revature.pojo.User;
+import com.revature.ws.Article;
+import com.revature.ws.ArticleService;
+import com.revature.ws.ArticleServiceImplService;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -18,6 +21,8 @@ public class UserServiceImpl implements UserService{
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
 	}
+	
+	
 
 	@Override
 	public User registerNewUser(User user) {
@@ -30,7 +35,7 @@ public class UserServiceImpl implements UserService{
 		boolean isEmail=userEmailExist(user.getEmail());
 		if(isEmail) {
 			throw new UserExistException("There is an account with that email :" + user.getEmail());
-		}*/	
+		}*/
 		
 		
 		return userDao.createUser(user);

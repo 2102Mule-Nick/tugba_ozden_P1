@@ -3,6 +3,7 @@ package com.revature.service;
 import java.util.List;
 
 import com.revature.pojo.User;
+import com.revature.ws.Article;
 
 public interface UserService {
 	
@@ -25,6 +26,7 @@ public interface UserService {
 	public User findUserByEmail(String email);
 	
 	public List<User> findAllUsers();
+	
 	
 	
 	

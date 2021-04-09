@@ -79,23 +79,13 @@ public class EmployeeController {
 		return "Empyolee update successfully";
 	}
 	
-	/*@DeleteMapping("/item")
+	@GetMapping("/employee-count/{id}")
 	@ResponseBody
-	public String deleteOneItme(@RequestBody Item item) {
+	public void countEmployeesByDepartment(@PathVariable int id) {
 		
-		itemDao.removeItem(item);
+		 employeeService.countEmployeesByDepartment(id);
 		
-		return "Item removed from inventory";
 	}
-	
-	@PostMapping("/item")
-	@ResponseBody
-	public String createItem(@RequestBody Item item) {
-		itemDao.addItem(item);
-		
-		return "Item added to inventory";
-	}*/
-	
 	
 	
 	

@@ -31,11 +31,13 @@ public class EmployeeServiceImpl implements EmployeeService{
 	
 
 	@Override
-	//@Transactional
+	@Transactional
 	public void createEmployee(Employee employee) {
 		
 		//control mail adresses
-		employeeDao.createEmployee(employee);		
+		employeeDao.createEmployee(employee);	
+		
+		jmsMessageSender.sendMessage("The employee has been created.");
 	}
 
 	@Override
@@ -58,30 +60,41 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 
 	@Override
-	//@Transactional
+	@Transactional
 	public void updateEmployee(Employee employee) {
 		
 		
 		
 		employeeDao.updateEmployee(employee);
 		
-		jmsMessageSender.sendMessage("All employees list has been accessed.");
+		jmsMessageSender.sendMessage("The employee has been updated.");
 		
 	}
 
 	@Override
+	@Transactional
 	public void removeEmployee(Employee employee) {
 		if(employeeDao.removeEmployee(employee)) {
 			System.out.println("This employee is removed successfuly..");
 		}else System.out.println("Something went wrong..");
 			
+		jmsMessageSender.sendMessage("The employee has been removed.");
+		
+		
 	}
 
 	@Override
+	@Transactional
 	public void countEmployeesByDepartment(int departmentId) {
 		
 		System.out.println("Employee counts : " + employeeDao.countEmployeesByDepartment(departmentId)+ 
-				"in the "+ departmentId +" Id's department");
+				
+					" in the "+ departmentId +" Id's department");
+		
+		jmsMessageSender.sendMessage("Employee counts : " + employeeDao.countEmployeesByDepartment(departmentId)+ 
+				
+				" in the "+ departmentId +" Id's department");
+		
 		}
 
 	@Override
@@ -92,9 +105,11 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 
 	@Override
+	@Transactional
 	public void deleteEmployee(int employeeId) {
 		employeeDao.deleteEmployee(employeeId);		
 		
+		jmsMessageSender.sendMessage("The employee has been deleted.");
 	}
 
 	@Override

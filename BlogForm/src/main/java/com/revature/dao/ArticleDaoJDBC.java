@@ -67,13 +67,15 @@ public class ArticleDaoJDBC implements ArticleDao{
 				new Object[] {article.getTitle(),article.getPublishDate(),article.getContent()}
 				);	
 		
+		System.out.println("The article is added.");
+		
 	}	
 	
 
 	@Override
 	public boolean deleteArticle(Article article) {
 		
-		String sql = "delete from article where article_id=?";
+		String sql = "delete from article where aricle_id=?";
 
 		if (this.jdbcTemplate.update(sql,article.getArticleId() ) == 0) {
 			return false;
@@ -83,15 +85,33 @@ public class ArticleDaoJDBC implements ArticleDao{
 		
 		
 	}
+	
+	/*
+	 * @Override
+	public boolean updateItemStatus(int itemId, boolean discontinued) {
+
+		String sql = "update item set discontinued = ? where product_id = ?";
+
+		if (jdbcTemplate.update(sql, discontinued, itemId) == 0) {
+			return false;
+		}
+
+		return true;
+	}
+	 * 
+	 * */
 
 	@Override
-	public void updateArticle(Article article) {
-		String sql = "update article set title=?, publis_date=?, content=? ";
+	public void updateArticle(int articleId, String title, String content) {
+		String sql = "update article set title=?, publis_date=?, content=? where aricle_id=? ";
 
-		this.jdbcTemplate.update(sql, new Object[] { article.getTitle(),article.getPublishDate(),article.getContent(),article.getArticleId() });
+		if(this.jdbcTemplate.update(sql, articleId,title, content)==0) {
+			
+			System.out.println("Something went wrong.");
+		}
 
 		// this.jdbcTemplate.up;
-		System.out.println("Article Id = " +article.getArticleId() + " content updated.");
+		System.out.println("Article content updated.");
 		
 	}
 	

@@ -1,5 +1,3 @@
-
-
 import java.util.Scanner;
 
 import org.springframework.context.ApplicationContext;

@@ -25,6 +25,6 @@ import com.revature.pojo.Article;
 	public void deleteArticle(Article article);
 	
 	@WebMethod
-	public void updateArticle(Article article);
+	public void updateArticle(int articleId, String title, String content);
 
 }

@@ -21,7 +21,7 @@ public class AppConfig {
 	public static final String BROKER_URL = "tcp://localhost:61616";
 
 	// JMS Destinations
-	public static final String EXAMPLE_QUEUE = "FLASH_CARD_LIST";
+	public static final String EXAMPLE_QUEUE = "ALL_EMPLOYEE_LIST";
 	
 	@Bean
 	public ActiveMQConnectionFactory amqConnectionFactory() {

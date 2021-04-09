@@ -33,7 +33,7 @@ public class WebConfig implements WebApplicationInitializer {
 		//register and map the dispatcher servlet
 		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(dispatcherContext));
 		dispatcher.setLoadOnStartup(1);
-		dispatcher.addMapping("/");
+		dispatcher.addMapping("/rest/*");
 		
 	}
 

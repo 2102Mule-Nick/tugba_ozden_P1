@@ -40,20 +40,19 @@ public class ArticleServiceImpl implements ArticleService{
 	public void addArticle(Article article) {
 		
 		articleDao.addArticle(article);
-		
-		System.out.println("This article is added.");
-		
 	}
 
 	@Override
 	public void deleteArticle(Article article) {
-		articleDao.deleteArticle(article);
+		if(articleDao.deleteArticle(article)) {
+			System.out.println("The article is deleted..");
+		}
 		
 	}
 
 	@Override
-	public void updateArticle(Article article) {
-		articleDao.updateArticle(article);
+	public void updateArticle(int articleId, String title, String content){
+		articleDao.updateArticle(articleId,title,content);
 		
 	}
 

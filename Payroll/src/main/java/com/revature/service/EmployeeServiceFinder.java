@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import com.revature.pojo.Employee;
 
 @Service
-public class EmployeeServiceFinder implements EmployeeService{
+public class EmployeeServiceFinder implements PayrollService{
 	
 	private static final String employeeURL="http://localhost:8080/EMSystemMain/employee";
 

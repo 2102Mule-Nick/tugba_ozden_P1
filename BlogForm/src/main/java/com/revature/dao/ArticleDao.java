@@ -14,6 +14,6 @@ public interface ArticleDao {
 	
 	public boolean deleteArticle(Article article);	
 	
-	public void updateArticle(Article article);
+	public void updateArticle(int articleId, String title, String content);
 
 }

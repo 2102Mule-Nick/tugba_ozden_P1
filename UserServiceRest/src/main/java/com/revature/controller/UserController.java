@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.pojo.User;
 import com.revature.service.UserService;
+import com.revature.ws.Article;
+import com.revature.ws.ArticleService;
+import com.revature.ws.ArticleServiceImplService;
 
 @Controller
 public class UserController {
@@ -31,13 +36,7 @@ public class UserController {
 		return "working";
 	}
 	
-	/*@GetMapping("/purchase/{purchaseId}")
-	public PurchaseOrder getPurchase(@PathVariable int purchaseId) {
-		
-		return purchaseOrderService.getPurchaseOrderById(purchaseId);
-		
-	}
-	
+	/*
 	@PostMapping("/purchase")
 	public PurchaseOrder createPurchaseOrder(@RequestBody PurchaseOrder purchaseOrder) {
 		return purchaseOrderService.createPurchaseOrder(purchaseOrder.getDate(), purchaseOrder.getCartId());
@@ -78,6 +77,45 @@ public class UserController {
 		return "The User is created." ;
 		
 	}
+	/*SOAPCLIENT call the methods*/
+	
+	@GetMapping("/article")
+	@ResponseBody
+	public List<Article> getUsersArticles() {
+		ArticleServiceImplService as=new ArticleServiceImplService();
+		ArticleService ar=as.getArticleServiceImplPort();
+		
+		return ar.getAllArticles();
+	}	
+	
+	@PostMapping("/article")
+	@ResponseBody
+	public void addArticle(@RequestBody Article article) {
+		ArticleServiceImplService as=new ArticleServiceImplService();
+		ArticleService ar=as.getArticleServiceImplPort();		
+		ar.addArticle(article);
+	
+	}
+	
+	@GetMapping("/article/{title}")
+	@ResponseBody
+	public List<Article> getArticlesByTitle(@PathVariable String title) {
+		ArticleServiceImplService as=new ArticleServiceImplService();
+		ArticleService ar=as.getArticleServiceImplPort();		
+		return ar.getArticlesByTitle(title);
+	}
+	
+	/*Continue RESTService method mapping*/
+	
+	
+	@PutMapping("/user")
+	@ResponseBody
+	public String updateUser(@RequestBody User user) {
+		userService.updatedUser(user);
+		
+		return "The user is updated.";
+	}
+	
 	
 	
 	
