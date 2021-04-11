@@ -79,12 +79,7 @@ In order to see this project in action, you will need a few things:
 
 ###### If all the pre-requisites above are met, clone this repo:
 
-    
-function fancyAlert(arg) {
-      if(arg) {
-        $.facebox({div:'https://github.com/2102Mule-Nick/tugba_ozden_P1.git'})
-      }
-    }
+    https://github.com/2102Mule-Nick/tugba_ozden_P1.git    }
 
 
 Tomcat server should listening on **http://localhost:8080/**
