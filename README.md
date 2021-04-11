@@ -61,7 +61,7 @@ Besides, the admin can create, edit, and delete employee accounts information. I
 * Adding Topic on EmployeeMain for sending payroll check information to all employees.
 * Adding jmslistener for the Topic on Payroll application.
 
-# # Getting Started/Usage
+## Getting Started/Usage
 
 In order to see this project in action, you will need a few things:
 
@@ -79,7 +79,7 @@ In order to see this project in action, you will need a few things:
 
 ###### If all the pre-requisites above are met, clone this repo:
 
-    https://github.com/2102Mule-Nick/tugba_ozden_P1.git    }
+    https://github.com/2102Mule-Nick/tugba_ozden_P1.git    
 
 
 Tomcat server should listening on **http://localhost:8080/**
