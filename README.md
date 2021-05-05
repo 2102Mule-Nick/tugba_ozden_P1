@@ -52,8 +52,8 @@ Besides, the admin can create, edit, and delete employee accounts information. I
 * Admin can view all user accounts
 * Admin can create, edit, view and count employees. 
 * Stores information about the employees in EmployeeService, as well as the users and employees associated with them, in a database.
-* In EmployeeService  updates this information based on new information received from the User Service.
-* BlogForm service provides end-points that allow users access to add articles.
+* In EmployeeService updates this information based on new information received from the User Service.
+* BlogForm service provides end-points that allows users access to add articles.
 * Jmslistener shows messages after using all EmployeeMain servise's endpoints.
 
 ###### Future Implementations of the application should address the following issues:
